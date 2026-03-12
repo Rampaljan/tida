@@ -1,4 +1,3 @@
-```markdown
 # Projekt OOB: Testowanie modułu Polars
 
 ## 📋 Spis treści
@@ -229,4 +228,3 @@ Wszelkie uwagi i pytania prosimy zgłaszać poprzez **Issues** w repozytorium.
 📅 **Projekt realizowany**: marzec – maj 2026  
 👥 **Zespół**: Natalia, Janek, Adam  
 🔗 **Repozytorium**: [github.com/twoja-organizacja/polars-testing](https://github.com/twoja-organizacja/polars-testing)
-```
