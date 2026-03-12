@@ -145,7 +145,7 @@ Wyniki będą przechowywane jako artefakty w pipeline, co pozwoli na prostą ana
 ---
 
 ## Pipeline CI/CD (GitHub Actions)
-Pipeline jest zdefiniowana w pliku `.github/workflows/main.yml` i uruchamiana **ręcznie** (`workflow_dispatch`).
+Pipeline jest zdefiniowana w pliku `.github/workflows/manual_pipeline.yml` i uruchamiana **ręcznie** (`workflow_dispatch`).
 
 ### Kroki pipeline:
 1. **Ustawienie środowiska** (ubuntu-latest, Python 3.10)
@@ -168,7 +168,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
       - name: Install Polars
         run: pip install polars
       - name: Install test dependencies
