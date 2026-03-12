@@ -190,7 +190,7 @@ jobs:
 ### Lokalnie
 1. Sklonuj repozytorium:
    ```bash
-   git clone https://github.com/twoja-organizacja/polars-testing.git
+   git clone https://github.com/Rampaljan/tida
    cd polars-testing
    ```
 2. (Opcjonalnie) Utwórz i aktywuj wirtualne środowisko.
