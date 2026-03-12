@@ -85,20 +85,18 @@ Wszystkie testy zostaną zautomatyzowane w pipeline GitHub Actions. Wyniki będ�
 .
 ├── .github/
 │   └── workflows/
-│       └── main.yml                # Definicja pipeline GitHub Actions
+│       └── manual_pipeline.yml      # Definicja pipeline GitHub Actions
 ├── docs/
 │   ├── acceptance_scenarios.md     # Scenariusze testów akceptacyjnych
 │   └── reports/                     # Miejsce na raporty (logi, wyniki)
 ├── tests/
 │   ├── functional/
+│   │   ├── test_aggregation.py
 │   │   ├── test_dataframe_creation.py
 │   │   ├── test_filtering.py
-│   │   ├── test_joins.py
-│   │   └── ...
-│   ├── performance/
-│   │   ├── test_csv_load_perf.py
-│   │   └── log_perf.txt             # Wyniki testów wydajnościowych
-│   └── conftest.py                  # Konfiguracja pytest (jeśli potrzebna)
+│   │   └── test_joins.py
+│   └── performance/
+│       └── test_csv_load_perf.py
 ├── requirements.txt                  # Zależności do uruchomienia testów
 ├── README.md                         # Niniejszy plik
 └── .gitignore
@@ -138,7 +136,7 @@ Przygotujemy **1–2 proste testy wydajnościowe** mierzące czas wykonania wybr
 
 | Nazwa testu | Opis | Sposób pomiaru |
 |-------------|------|----------------|
-| **Wczytywanie dużego CSV** | Pomiar czasu wczytywania pliku CSV o rozmiarze >100 MB | `time.perf_counter()` – wynik zapisany do pliku `tests/performance/log_perf.txt` |
+| **Filtrowanie dużego DataFrame** | Pomiar czasu wykonania prostego filtrowania miliona rekordów | `time.perf_counter()` – wynik zapisywany do logu podczas testu |
 
 Wyniki będą przechowywane jako artefakty w pipeline, co pozwoli na prostą analizę porównawczą.
 
@@ -148,7 +146,7 @@ Wyniki będą przechowywane jako artefakty w pipeline, co pozwoli na prostą ana
 Pipeline jest zdefiniowana w pliku `.github/workflows/manual_pipeline.yml` i uruchamiana **ręcznie** (`workflow_dispatch`).
 
 ### Kroki pipeline:
-1. **Ustawienie środowiska** (ubuntu-latest, Python 3.10)
+1. **Ustawienie środowiska** (ubuntu-latest, Python 3.11)
 2. **Instalacja Polars** z PyPI
 3. **Uruchomienie testów funkcjonalnych** (wszystkie pliki `tests/functional/test_*.py`)
 4. **Uruchomienie testów wydajnościowych** (np. `tests/performance/test_csv_load_perf.py`)
@@ -191,7 +189,7 @@ jobs:
 1. Sklonuj repozytorium:
    ```bash
    git clone https://github.com/Rampaljan/tida
-   cd polars-testing
+   cd tida               # przejdź do katalogu projektu
    ```
 2. (Opcjonalnie) Utwórz i aktywuj wirtualne środowisko.
 3. Zainstaluj zależności:
